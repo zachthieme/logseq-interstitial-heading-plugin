@@ -57,6 +57,13 @@ const settingsTemplate:SettingSchemaDesc[] = [{
   description: "Enter your desired keyboard shortcut for the command",
   default: "mod+t"
 },
+{
+  key: "iso8601",
+  type: 'boolean',
+  default: true,
+  title: "Set date to iso8601ish",
+  description: "If true it will print: 2023-11-20 08:24 (default), otherwise 8:24",
+},
 { 
   key: "KeyboardShortcut_h",
   type: "string",
@@ -73,6 +80,7 @@ async function updateBlock(block,insertHeader) {
 
   //timeB
   const today = new Date();
+  //
   const time = date.toISOString().replace('Z',' ').split(".")[0];
   // const time = String(today.getHours()).padStart((logseq.settings.padHour) ? 2 : 1, '0') + 
   //              ":" + 
