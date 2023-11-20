@@ -73,9 +73,10 @@ async function updateBlock(block,insertHeader) {
 
   //timeB
   const today = new Date();
-  const time = String(today.getHours()).padStart((logseq.settings.padHour) ? 2 : 1, '0') + 
-                ":" + 
-                String(today.getMinutes()).padStart(2, '0')
+  const time = date.toISOString().replace('Z',' ').split(".")[0];
+  // const time = String(today.getHours()).padStart((logseq.settings.padHour) ? 2 : 1, '0') + 
+  //              ":" + 
+  //              String(today.getMinutes()).padStart(2, '0')
   // Don't bold time if header of if logseq.settings.boldText=false
   const timePrefix = (insertHeader || ! logseq.settings.boldText) ? "" : markupTimeMrk[markupChoices.indexOf(logseq.settings.markup)]
   const timeHolder = (logseq.settings.cstTime) 
